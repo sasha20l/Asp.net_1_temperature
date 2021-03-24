@@ -41,7 +41,7 @@
         "IIS Express": {
             "commandName": "IISExpress",
             "launchBrowser": true,
-            "launchUrl": "api/temperature/temperatureObject/read",
+            "launchUrl": "api/temperatureobjectvalue/read",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }

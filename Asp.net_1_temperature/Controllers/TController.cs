@@ -28,27 +28,40 @@ namespace Asp.net_1_temperature.Controllers
         [HttpGet("read")]
         public IActionResult Read()
         {
-            return Ok(holder.temperatureObject);
+            string info = "";
+
+            for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
+            {
+
+                info += holder.temperatureObjectValue[i].Date + " температура:" + holder.temperatureObjectValue[i].TemperatureC + "\r\n";
+               
+            }
+            return Ok(info);
         }
 
-        //[HttpPut("update")]
-        //public IActionResult Update([FromQuery] string stringsToUpdate, [FromQuery] string newValue)
-        //{
-        //    //for (int i = 0; i < holder.Values.Count; i++)
-        //    //{
-        //    //    if (holder.Values[i] == stringsToUpdate)
-        //    //        holder.Values[i] = newValue;
-        //    //}
+        [HttpPut("update")]
+        public IActionResult Update([FromQuery] string stringsDateToUpdate, [FromQuery] int newTemp)
+        {
+            for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
+            {
+                if (holder.temperatureObjectValue[i].Date == stringsDateToUpdate)
+                    holder.temperatureObjectValue[i].TemperatureC = newTemp;
+            }
 
-        //    //return Ok();
-        //}
+            return Ok();
+        }
 
-        //[HttpDelete("delete")]
-        //public IActionResult Delete([FromQuery] string stringsToDelete)
-        //{
-        //    //holder.Values = holder.Values.Where(w => w != stringsToDelete).ToList();
-        //    //return Ok();
-        //}
+        [HttpDelete("delete")]
+        public IActionResult Delete([FromQuery] string stringsToDelete)
+        {
+            for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
+            {
+                if (holder.temperatureObjectValue[i].Date == stringsToDelete)
+                    holder.temperatureObjectValue.Remove(holder.temperatureObjectValue[i]);
+            }
+
+            return Ok();
+        }
 
 
 

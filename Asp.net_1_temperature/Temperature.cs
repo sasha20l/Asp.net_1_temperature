@@ -7,20 +7,21 @@ namespace Asp.net_1_temperature
 {
     public class Temperature
     {
-        public List<TemperatureObject> temperatureObject = new List<TemperatureObject>();
+        DateTime now = DateTime.Now;
+        public List<TemperatureObject> temperatureObjectValue = new List<TemperatureObject>();
         public void CreateTemperature(int temperature)
         {
-            temperatureObject.Add(new TemperatureObject(temperature, DateTime.Now));
+            temperatureObjectValue.Add(new TemperatureObject(temperature, now.ToString("D")));
         }
     }
 
     public class TemperatureObject
     {
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public int TemperatureC { get; set; }
 
-        public TemperatureObject(int temperatureC, DateTime date) { TemperatureC = temperatureC; Date = date; }
+        public TemperatureObject(int temperatureC, string date) { TemperatureC = temperatureC; Date = date; }
 
 
     }

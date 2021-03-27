@@ -33,18 +33,18 @@ namespace Asp.net_1_temperature.Controllers
             for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
             {
 
-                info += holder.temperatureObjectValue[i].Date + " температура:" + holder.temperatureObjectValue[i].TemperatureC + "\r\n";
+                info += holder.temperatureObjectValue[i].Time + " температура:" + holder.temperatureObjectValue[i].TemperatureC + "\r\n";
                
             }
             return Ok(info);
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromQuery] string stringsDateToUpdate, [FromQuery] int newTemp)
+        public IActionResult Update([FromQuery] string stringsTimeToUpdate, [FromQuery] int newTemp)
         {
             for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
             {
-                if (holder.temperatureObjectValue[i].Date == stringsDateToUpdate)
+                if (holder.temperatureObjectValue[i].Time == stringsTimeToUpdate)
                     holder.temperatureObjectValue[i].TemperatureC = newTemp;
             }
 
@@ -56,7 +56,7 @@ namespace Asp.net_1_temperature.Controllers
         {
             for (int i = 0; i < holder.temperatureObjectValue.Count; i++)
             {
-                if (holder.temperatureObjectValue[i].Date == stringsToDelete)
+                if (holder.temperatureObjectValue[i].Time == stringsToDelete)
                     holder.temperatureObjectValue.Remove(holder.temperatureObjectValue[i]);
             }
 

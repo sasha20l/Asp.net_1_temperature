@@ -41,6 +41,7 @@ namespace Asp.net_1_temperature
 
             app.UseRouting();
 
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

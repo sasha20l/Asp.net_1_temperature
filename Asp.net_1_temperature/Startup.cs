@@ -26,7 +26,7 @@ namespace Asp.net_1_temperature
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<Temperature>();
+            services.AddSingleton<WeatherForecastStorage>();
             services.AddSingleton<TemperatureObject>();
         }
 

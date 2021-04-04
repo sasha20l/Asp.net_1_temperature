@@ -15,5 +15,4 @@ namespace Asp.net_1_temperature
             temperatureObjectValue.Add(new TemperatureObject(temperature, dateTime));
         }
     }
-
 }
